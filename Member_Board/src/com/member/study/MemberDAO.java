@@ -148,6 +148,52 @@ public class MemberDAO {
 		return dto;
 	}
 	
+	public String getMember_pw(String id) {
+		conn=getConn();
+		String sql="select member_pw from boardMember where member_id=?";
+		String member_pw=null;
+		try {
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.executeQuery();
+			
+			if(rs.next()) {
+				member_pw=rs.getString("member_pw");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("getMember_pw() Exception");
+		} finally {
+			dbClose();
+		}
+		
+		return member_pw;
+	}
+	
+	public int updateMember(MemberDTO dto) {
+		conn=getConn();
+		String sql="update boardMember set member_pw=?, member_name=?," +
+		" member_age=?, member_gender=?, member_email=? where member_id=?";
+		int succ=0;
+		try {
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, dto.getMember_pw());
+			ps.setString(2, dto.getMember_name());
+			ps.setInt(3, dto.getMember_age());
+			ps.setString(4, dto.getMember_gender());
+			ps.setString(5, dto.getMember_email());
+			ps.setString(6, dto.getMember_id());
+			succ=ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("updateMember() Exception");
+		} finally {
+			dbClose();
+		}
+		
+		return succ;
+	}
+	
 	public void dbClose() {
 		try {
 			if(rs!=null)

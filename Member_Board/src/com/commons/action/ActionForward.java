@@ -2,24 +2,26 @@ package com.commons.action;
 
 public class ActionForward {
 
-	public void setPath(String string) {
-		// TODO Auto-generated method stub
+	private String path;
+	private boolean isRedirect;
+	public void setPath(String path) {
+		this.path=path;
 		
 	}
 
-	public void setRedirect(boolean b) {
-		// TODO Auto-generated method stub
+	public void setRedirect(boolean isRedirect) {
+		this.isRedirect=isRedirect; 
 		
 	}
 
 	public boolean isRedirect() {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return isRedirect;
 	}
 
 	public String getPath() {
 		// TODO Auto-generated method stub
-		return null;
+		return path;
 	}
 
 }

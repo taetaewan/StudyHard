@@ -5,6 +5,7 @@ public class BoardDTO {
 	private int board_num;
 	private String board_id, board_subject, board_content, board_file;
 	private int board_re_ref, board_re_lev, board_re_seq, board_readcount;
+	private String board_date;
 	
 	public BoardDTO() {}
 
@@ -93,5 +94,12 @@ public class BoardDTO {
 	public void setBoard_readcount(int board_readcount) {
 		this.board_readcount = board_readcount;
 	}
-	
-}
+	public String getBoard_date() {
+		return board_date;
+	}
+
+	public void setBoard_date(String board_date) {
+		this.board_date = board_date;
+	}
+
+} 
