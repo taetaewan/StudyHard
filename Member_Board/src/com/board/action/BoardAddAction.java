@@ -21,16 +21,19 @@ public class BoardAddAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String realFolder="";
-		String saveFolder="/boardUpload";
+		String saveFolder="/boardupload";
 		int fileSize=5*1024*1024;
 		ServletContext context=request.getServletContext();
 		realFolder=context.getRealPath(saveFolder);
+		//System.out.println(realFolder);
 		MultipartRequest multi=new MultipartRequest(request, realFolder, fileSize, "utf-8", new DefaultFileRenamePolicy());
 		
 		BoardDTO dto= new BoardDTO();
 		dto.setBoard_id(multi.getParameter("board_id"));
 		dto.setBoard_subject(multi.getParameter("board_subject"));
-		dto.setBoard_file(multi.getFilesystemName((String) multi.getFileNames().nextElement()));
+		dto.setBoard_content(multi.getParameter("board_content"));
+		//System.out.println(multi.getOriginalFileName((String) multi.getFileNames().nextElement()));
+		dto.setBoard_file(multi.getOriginalFileName((String) multi.getFileNames().nextElement()));
 		
 		BoardDAO dao= new BoardDAO();
 		int succ=dao.boardInsert(dto);

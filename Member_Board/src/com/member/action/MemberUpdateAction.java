@@ -21,7 +21,7 @@ public class MemberUpdateAction implements Action{
 		dto.setMember_id(request.getParameter("member_id"));
 		dto.setMember_pw(request.getParameter("member_pw"));
 		dto.setMember_name(request.getParameter("member_name"));
-		dto.setMember_age(Integer.parseInt(request.getParameter("member_age")));
+		dto.setMember_birth(request.getParameter("member_birth"));
 		dto.setMember_gender(request.getParameter("member_gender"));
 		dto.setMember_email(request.getParameter("member_email"));
 		

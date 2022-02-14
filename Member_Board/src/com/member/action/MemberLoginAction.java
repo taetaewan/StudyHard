@@ -21,7 +21,7 @@ public class MemberLoginAction implements Action{
 		MemberDTO dto= new MemberDTO();
 		dto.setMember_id(request.getParameter("member_id"));
 		dto.setMember_pw(request.getParameter("member_pw"));
-		
+		//System.out.println(request.getParameter("member_id"));
 		MemberDAO dao=new MemberDAO();
 		int result=dao.isMember(dto);
 		
@@ -42,9 +42,9 @@ public class MemberLoginAction implements Action{
 		} else {
 			HttpSession session=request.getSession();
 			session.setAttribute("id", dto.getMember_id());
-			
+			//session.setAttribute("pw", dto.getMember_pw());
 			ActionForward forward=new ActionForward();
-			forward.setPath("boardList.bo");
+			forward.setPath("/boardList.bo");
 			forward.setRedirect(false);
 			return forward;
 		}

@@ -23,8 +23,8 @@
 				<td><input type="text" name="member_name" required="required"/></td>
 			</tr>
 			<tr>
-				<th>나이</th>
-				<td><input type="number" name="member_age" required="required" min="0" /></td>
+				<th>생년월일</th>
+				<td><input type="text" name="member_birth" required="required"  /></td>
 			</tr>
 			<tr>
 				<th>성별</th>

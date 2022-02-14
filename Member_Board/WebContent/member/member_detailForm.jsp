@@ -37,7 +37,7 @@ function fnSubmit() {
 			</tr>
 			<tr>
 				<th>나이</th>
-				<td><input type="number" name="member_age" value="<%=dto.getMember_age() %>" /></td>
+				<td><input type="number" name="member_age" value="<%=dto.getMember_birth() %>" /></td>
 			</tr>
 			<tr>
 				<th>성별</th>

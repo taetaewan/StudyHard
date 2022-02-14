@@ -4,7 +4,7 @@
 <%@page import="com.member.study.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-String id = (String) session.getAttribute("id"); //JSP는 session이 내장 객체라 바로 사용 가능하다.
+String id = (String) session.getAttribute("id");
 MemberDAO dao = new MemberDAO();
 String member_pw = dao.getMember_pw(id);
 Integer nowPage = (Integer)request.getAttribute("page");
@@ -40,7 +40,7 @@ function fnModify(id, member_pw) {
 <div align="center">
 	<h3>[자유 게시판]</h3>
 	<table border= "1">
-		<tr align="center";>
+		<tr align="center">
 			<th>번호</th>
 			<th width="200">제목</th>
 			<th>작성자</th>

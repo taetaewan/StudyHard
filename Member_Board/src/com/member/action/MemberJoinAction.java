@@ -21,7 +21,7 @@ public class MemberJoinAction implements Action {
 		dto.setMember_id(request.getParameter("member_id"));
 		dto.setMember_pw(request.getParameter("member_pw"));
 		dto.setMember_name(request.getParameter("member_name"));
-		dto.setMember_age(Integer.parseInt(request.getParameter("member_age")));
+		dto.setMember_birth(request.getParameter("member_birth"));
 		dto.setMember_gender(request.getParameter("member_gender"));
 		dto.setMember_email(request.getParameter("member_email"));
 
@@ -35,8 +35,8 @@ public class MemberJoinAction implements Action {
 			out.println("location.href='memberJoin.me';</script>");
 			return null;
 		} else {
-			out.println("<script>alert('회원가입 실패')</script>");
-			out.println("location.href='memberJoin.me';</script>");
+			out.println("<script>alert('회원가입 성공')</script>");
+			out.println("location.href='memberLogin.me';</script>");
 			return null;
 //          ActionForward forward = new ActionForward();
 //			forward.setPath("memberLogin.me");

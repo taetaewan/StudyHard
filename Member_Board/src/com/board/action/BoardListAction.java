@@ -30,6 +30,7 @@ public class BoardListAction implements Action{
 		if(request.getParameter("page")!=null) {
 			page=Integer.parseInt(request.getParameter("page"));
 		}
+		
 		ArrayList<BoardDTO> list= new ArrayList<BoardDTO>();
 		list=dao.getBoardList(page, limit);
 		

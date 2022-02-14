@@ -142,6 +142,7 @@ public class BoardDAO {
 				dto.setBoard_re_seq(rs.getInt("board_re_seq"));
 				dto.setBoard_readcount(rs.getInt("board_readcount"));
 				dto.setBoard_date(rs.getString("board_date"));
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

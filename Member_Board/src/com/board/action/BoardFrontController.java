@@ -20,7 +20,7 @@ public class BoardFrontController  extends HttpServlet{
 		String uri=request.getRequestURI();
 		String context=request.getContextPath();
 		String command=uri.substring(context.length());
-		
+		System.out.println(command);
 		Action action= null;
 		ActionForward forward=null;
 		

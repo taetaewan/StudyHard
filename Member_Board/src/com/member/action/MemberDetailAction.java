@@ -26,6 +26,7 @@ public class MemberDetailAction implements Action{
 		ActionForward forward=new ActionForward();
 		forward.setPath("member/member_detailForm.jsp");
 		forward.setRedirect(false);
+	
 		return forward;
 	}
 

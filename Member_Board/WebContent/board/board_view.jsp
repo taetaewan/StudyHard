@@ -4,7 +4,7 @@
 String id = (String) (session.getAttribute("id"));
 BoardDTO dto = (BoardDTO) request.getAttribute("dto");
 String board_content = dto.getBoard_content();
-String replaceContent = board_content.replaceAll("\r\n", "<br/>");
+String replaceContent = board_content.replaceAll("\r\n", "<br>");
 %>
 <!DOCTYPE html>
 <html>
@@ -38,7 +38,7 @@ function fnDelete(num) {
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td colspan="3" width="500"><%=replaceContent %></td>
+			<td colspan="3" width="500"><%=board_content %></td>
 		</tr>
 		<tr>
 			<th>첨부 파일</th>

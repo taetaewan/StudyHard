@@ -37,7 +37,7 @@ public class MemberDAO {
 			ps.setString(1, dto.getMember_id());
 			ps.setString(2, dto.getMember_pw());
 			ps.setString(3, dto.getMember_name());
-			ps.setInt(4, dto.getMember_age());
+			ps.setString(4, dto.getMember_birth());
 			ps.setString(5, dto.getMember_gender());
 			ps.setString(6, dto.getMember_email());
 			succ=ps.executeUpdate();
@@ -93,7 +93,7 @@ public class MemberDAO {
 				dto.setMember_id(rs.getString("member_id"));
 				dto.setMember_pw(rs.getString("member_pw"));
 				dto.setMember_name(rs.getString("member_name"));
-				dto.setMember_age(rs.getInt("member_age"));
+				dto.setMember_birth(rs.getString("member_birth"));
 				dto.setMember_gender(rs.getString("member_gender"));
 				dto.setMember_email(rs.getString("member_email"));
 			}
@@ -134,7 +134,7 @@ public class MemberDAO {
 				dto.setMember_id(rs.getString("member_id"));
 				dto.setMember_pw(rs.getString("member_pw"));
 				dto.setMember_name(rs.getString("member_name"));
-				dto.setMember_age(rs.getInt("member_age"));
+				dto.setMember_birth(rs.getString("member_birth"));
 				dto.setMember_gender(rs.getString("member_gender"));
 				dto.setMember_email(rs.getString("member_email"));
 			}
@@ -150,14 +150,16 @@ public class MemberDAO {
 	
 	public String getMember_pw(String id) {
 		conn=getConn();
-		String sql="select member_pw from boardMember where member_id=?";
+		String sql = "SELECT member_pw FROM boardMember WHERE member_id = ?";
 		String member_pw=null;
 		try {
+			//System.out.println(id);
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, id);
-			ps.executeQuery();
+			rs=ps.executeQuery();
 			
 			if(rs.next()) {
+				
 				member_pw=rs.getString("member_pw");
 			}
 		} catch (Exception e) {
@@ -173,13 +175,13 @@ public class MemberDAO {
 	public int updateMember(MemberDTO dto) {
 		conn=getConn();
 		String sql="update boardMember set member_pw=?, member_name=?," +
-		" member_age=?, member_gender=?, member_email=? where member_id=?";
+		" member_birth=?, member_gender=?, member_email=? where member_id=?";
 		int succ=0;
 		try {
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, dto.getMember_pw());
 			ps.setString(2, dto.getMember_name());
-			ps.setInt(3, dto.getMember_age());
+			ps.setString(3, dto.getMember_birth());
 			ps.setString(4, dto.getMember_gender());
 			ps.setString(5, dto.getMember_email());
 			ps.setString(6, dto.getMember_id());

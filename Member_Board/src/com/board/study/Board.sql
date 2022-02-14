@@ -13,4 +13,9 @@ Board_date DATE );
  ALTER TABLE memberBoard ADD CONSTRAINT pk_board_id FOREIGN KEY(Board_id) REFERENCES boardMember(Member_id); 
  --테이블 조회 
  SELECT * FROM memberBoard;
+SELECT * FROM memberBoard WHERE board_num = 2;
+select * from information_schema.table_constraints where table_name = 'memberBoard';
+select * from memberBoard order by board_re_ref desc, board_re_seq asc limit 1, 10";
+delete from memberBoard where board_id='aaaa';
 
+alter table memberBoard modify board_file varchar(50);

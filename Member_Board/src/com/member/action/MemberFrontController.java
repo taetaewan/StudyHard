@@ -20,20 +20,20 @@ public class MemberFrontController extends HttpServlet {
 		String uri=request.getRequestURI();
 		String context=request.getContextPath();
 		String command=uri.substring(context.length());
-		
+		System.out.println(command);
 		Action action=null;
 		ActionForward forward=null;
 		
 		if(command.equals("/memberLogin.me")) {
 			forward=new ActionForward();
-			forward.setPath("member/loginForm.jsp");
+			forward.setPath("/member/loginForm.jsp");
 			forward.setRedirect(false);
 		} else if(command.equals("/memberLoginAction.me")) {
 			action=new MemberLoginAction();
 			forward=action.execute(request, response);
 		} else if(command.equals("/memberJoin.me")) {
 			forward= new ActionForward();
-			forward.setPath("member/joinForm.jsp");
+			forward.setPath("/member/joinForm.jsp");
 			forward.setRedirect(false);
 		} else if (command.equals("/memberJoinAction.me")) {
 			action=new MemberJoinAction();
@@ -64,6 +64,7 @@ public class MemberFrontController extends HttpServlet {
 				response.sendRedirect(forward.getPath());
 			} else {
 				RequestDispatcher rd=request.getRequestDispatcher(forward.getPath());
+				//System.out.println(forward.getPath());
 				rd.forward(request, response);
 			}
 		}
